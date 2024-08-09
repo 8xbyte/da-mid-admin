@@ -8,9 +8,11 @@ import TeachersPage from '@pages/TeachersPage'
 
 import { Route, Routes } from 'react-router-dom'
 
+import * as styles from './app.module.scss'
+
 const App: React.FC = () => {
     return (
-        <Block>
+        <Block className={styles.app}>
             <Routes>
                 <Route path='/audiences' element={<AudiencesPage />} />
                 <Route path='/classes' element={<ClassesPage />} />
