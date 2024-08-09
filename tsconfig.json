@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "NodeNext",
+        "strict": true,
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "NodeNext",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@store/*": [
+                "./src/store/*"
+            ],
+            "@api/*": [
+                "./src/api/*"
+            ],
+            "@pages/*": [
+                "./src/pages/*"
+            ],
+            "@interfaces/*": [
+                "./src/interfaces/*"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}
