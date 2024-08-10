@@ -11,21 +11,6 @@
         "paths": {
             "@/*": [
                 "./src/*"
-            ],
-            "@components/*": [
-                "./src/components/*"
-            ],
-            "@store/*": [
-                "./src/store/*"
-            ],
-            "@api/*": [
-                "./src/api/*"
-            ],
-            "@pages/*": [
-                "./src/pages/*"
-            ],
-            "@interfaces/*": [
-                "./src/interfaces/*"
             ]
         }
     },
