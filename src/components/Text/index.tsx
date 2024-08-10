@@ -2,13 +2,13 @@ import React from 'react'
 
 import * as styles from './text.module.scss'
 
-interface IProps
+export interface ITextProps
     extends React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLSpanElement>,
         HTMLSpanElement
     > {}
 
-const Text: React.FC<IProps> = ({ className, children, ...others }) => {
+const Text: React.FC<ITextProps> = ({ className, children, ...others }) => {
     return (
         <span className={[styles.defaultText, className].join(' ')} {...others}>
             {children}
