@@ -15,14 +15,16 @@ const App: React.FC = () => {
     return (
         <Block className={styles.app}>
             <BottomMenu />
-            <Routes>
-                <Route path='/audiences' element={<AudiencesPage />} />
-                <Route path='/classes' element={<ClassesPage />} />
-                <Route path='/groups' element={<GroupsPage />} />
-                <Route path='/subjects' element={<SubjectsPage />} />
-                <Route path='/teachers' element={<TeachersPage />} />
-                <Route path='*' element={<Navigate to='/audiences' />} />
-            </Routes>
+            <Block className={styles.page}>
+                <Routes>
+                    <Route path='/audiences' element={<AudiencesPage />} />
+                    <Route path='/classes' element={<ClassesPage />} />
+                    <Route path='/groups' element={<GroupsPage />} />
+                    <Route path='/subjects' element={<SubjectsPage />} />
+                    <Route path='/teachers' element={<TeachersPage />} />
+                    <Route path='*' element={<Navigate to='/audiences' />} />
+                </Routes>
+            </Block>
         </Block>
     )
 }
