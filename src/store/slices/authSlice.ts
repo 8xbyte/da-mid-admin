@@ -25,7 +25,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         setIsAuth(state, action: PayloadAction<boolean>) {
-            state
+            state.isAuth = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -38,6 +38,7 @@ const authSlice = createSlice({
                 state.login.error = action.payload as IApiError
             })
             .addCase(login.fulfilled, (state, action) => {
+                state.isAuth = true
                 state.login.status = 'success'
                 state.login.result = action.payload as IApiEmptyResult
             })
