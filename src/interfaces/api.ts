@@ -1,3 +1,5 @@
+export type IApiStatus = 'loading' | 'failed' | 'success'
+
 export interface IApiResult<ResultType> {
     status: string
     result: ResultType
