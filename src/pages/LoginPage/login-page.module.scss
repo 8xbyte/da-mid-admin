@@ -1,0 +1,28 @@
+.loginPage {
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    .middleBlock {
+        padding: 20px;
+        flex-direction: column;
+        border-radius: 10px;
+
+        .inputBlock {
+            flex-direction: column;
+
+            .text {
+                margin-left: 5px;
+                font-size: 14px;
+            }
+
+            .input {
+                margin-top: 5px;
+            }
+        }
+
+        & > *:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+}
