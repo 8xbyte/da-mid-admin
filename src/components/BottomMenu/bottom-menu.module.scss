@@ -7,6 +7,8 @@
     overflow-y: auto;
 
     @media screen and (min-width: 0) and (max-width: 765px) {
+        min-height: 160px;
+        max-height: 160px;
         flex: 1;
     }
 
