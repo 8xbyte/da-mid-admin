@@ -9,7 +9,8 @@ module.exports = {
         compress: true,
         open: true,
         historyApiFallback: true,
-        port: 3000
+        port: 443,
+        server: 'https'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
