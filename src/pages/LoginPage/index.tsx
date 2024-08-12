@@ -45,6 +45,7 @@ const LoginPage: React.FC = () => {
                 <Block className={styles.inputBlock}>
                     <Text className={styles.text}>Пароль</Text>
                     <Input
+                        type='password'
                         placeholder='Пароль'
                         className={styles.input}
                         onChange={(e) =>
