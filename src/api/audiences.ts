@@ -28,6 +28,28 @@ export const getAudiences = createAsyncThunk(
     }
 )
 
+interface ISearchAudiencesData {
+    name: string
+}
+
+export const searchAudiences = createAsyncThunk(
+    'audiences/search',
+    async (data: ISearchAudiencesData, thunkApi) => {
+        try {
+            const response = await axios.get<IApiResult<Array<IAudience>>>(
+                'https://api.damid.micmaclaynd.ru/api/audiences/search',
+                {
+                    params: data,
+                    withCredentials: true
+                }
+            )
+            return thunkApi.fulfillWithValue(response.data)
+        } catch (error) {
+            return thunkApi.rejectWithValue(getStringFromAxiosError(error))
+        }
+    }
+)
+
 interface IAddAudienceData {
     name: string
 }
