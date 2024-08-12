@@ -7,14 +7,24 @@ import React from 'react'
 
 import { login } from '@/api/auth'
 import { useAppDispatch, useAppSelector } from '@/store/store'
+import { useNavigate } from 'react-router-dom'
 
 import * as styles from './login-page.module.scss'
 
 const LoginPage: React.FC = () => {
+    const auth = useAppSelector((state) => state.auth)
+
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const [loginText, setLoginText] = React.useState<string | null>(null)
     const [passwordText, setPasswordText] = React.useState<string | null>(null)
+
+    React.useEffect(() => {
+        if (auth.isAuth) {
+            navigate('/audiences')
+        }
+    }, [])
 
     const loginHandler = () => {
         if (loginText && passwordText) {
