@@ -1,5 +1,5 @@
 import { login } from '@/api/auth'
-import { IApiEmptyResult, IApiError, IApiStatus } from '@/interfaces/api'
+import { IApiEmptyResult, IApiStatus } from '@/interfaces/api'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 interface IInitialState {
@@ -7,7 +7,7 @@ interface IInitialState {
     login: {
         status: IApiStatus | null
         error: string | null
-        result: IApiEmptyResult | null
+        result: string | null
     }
 }
 
@@ -40,7 +40,7 @@ const authSlice = createSlice({
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.login.status = 'success'
-                state.login.result = action.payload as IApiEmptyResult
+                state.login.result = action.payload.status
             })
     }
 })
