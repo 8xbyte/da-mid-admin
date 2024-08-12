@@ -60,7 +60,7 @@ export const addAudience = createAsyncThunk(
     'audiences/add',
     async (data: IAddAudienceData, thunkApi) => {
         try {
-            const response = await axios.post<IApiEmptyResult>(
+            const response = await axios.post<IApiResult<IAudience>>(
                 'https://api.damid.micmaclaynd.ru/api/audiences/add',
                 data,
                 {
@@ -82,7 +82,7 @@ export const removeAudience = createAsyncThunk(
     'audiences/remove',
     async (data: IRemoveAudienceData, thunkApi) => {
         try {
-            const response = await axios.post<IApiEmptyResult>(
+            const response = await axios.post<IApiResult<IAudience>>(
                 'https://api.damid.micmaclaynd.ru/api/audiences/remove',
                 data,
                 {
