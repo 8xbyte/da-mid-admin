@@ -28,24 +28,18 @@ const App: React.FC = () => {
 
     return (
         <Block className={styles.app}>
-            {auth.isAuth ? (
-                <Block className={styles.page}>
-                    <BottomMenu />
-                    <Routes>
-                        <Route path='/audiences' element={<AudiencesPage />} />
-                        <Route path='/classes' element={<ClassesPage />} />
-                        <Route path='/groups' element={<GroupsPage />} />
-                        <Route path='/subjects' element={<SubjectsPage />} />
-                        <Route path='/teachers' element={<TeachersPage />} />
-                        <Route
-                            path='*'
-                            element={<Navigate to='/audiences' />}
-                        />
-                    </Routes>
-                </Block>
-            ) : (
-                <LoginPage />
-            )}
+            <Block className={styles.page}>
+                {auth.isAuth ? <BottomMenu /> : null}
+                <Routes>
+                    <Route path='/login' element={<LoginPage />} />
+                    <Route path='/audiences' element={<AudiencesPage />} />
+                    <Route path='/classes' element={<ClassesPage />} />
+                    <Route path='/groups' element={<GroupsPage />} />
+                    <Route path='/subjects' element={<SubjectsPage />} />
+                    <Route path='/teachers' element={<TeachersPage />} />
+                    <Route path='*' element={<Navigate to='/audiences' />} />
+                </Routes>
+            </Block>
         </Block>
     )
 }
