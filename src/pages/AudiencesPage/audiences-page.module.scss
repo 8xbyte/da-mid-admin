@@ -1,4 +1,68 @@
 .audiencesPage {
+    padding: 10px;
     flex-direction: column;
     flex: 1;
+
+    & > *:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    .addBlock {
+        padding: 10px;
+        border-radius: 10px;
+        flex-direction: column;
+
+        .text {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .controlBlock {
+            margin-top: 5px;
+
+            .button {
+                margin-left: 10px;
+
+                .image {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+
+    .audiencesBlock {
+        flex-direction: column;
+        overflow: auto;
+
+        .audienceBlock {
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #f3f3f7;
+            }
+
+            .text {
+                margin-left: 10px;
+            }
+
+            .removeButton {
+                background-color: red;
+                transition: all 0.5s ease-in-out;
+
+                .image {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+
+    .emptyText {
+        padding: 10px;
+    }
 }
