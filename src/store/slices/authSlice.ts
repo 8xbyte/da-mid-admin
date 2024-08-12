@@ -23,11 +23,7 @@ const initialState: IInitialState = {
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {
-        setIsAuth(state, action: PayloadAction<boolean>) {
-            state.isAuth = action.payload
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(login.pending, (state, action) => {
@@ -38,6 +34,7 @@ const authSlice = createSlice({
                 state.login.error = action.payload as string
             })
             .addCase(login.fulfilled, (state, action) => {
+                localStorage.setItem('isAuth', 'true')
                 state.isAuth = true
                 state.login.status = 'success'
                 state.login.result = action.payload as IApiEmptyResult
@@ -45,5 +42,4 @@ const authSlice = createSlice({
     }
 })
 
-export const { setIsAuth } = authSlice.actions
 export default authSlice.reducer
