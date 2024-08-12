@@ -6,7 +6,7 @@ interface IInitialState {
     isAuth: boolean
     login: {
         status: IApiStatus | null
-        error: IApiError | null
+        error: string | null
         result: IApiEmptyResult | null
     }
 }
@@ -35,7 +35,7 @@ const authSlice = createSlice({
             })
             .addCase(login.rejected, (state, action) => {
                 state.login.status = 'failed'
-                state.login.error = action.payload as IApiError
+                state.login.error = action.payload as string
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.isAuth = true
