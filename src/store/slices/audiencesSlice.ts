@@ -22,12 +22,12 @@ interface IInitialState {
     add: {
         status: IApiStatus | null
         error: string | null
-        result: string | null
+        result: IAudience | null
     }
     remove: {
         status: IApiStatus | null
         error: string | null
-        result: string | null
+        result: IAudience | null
     }
 }
 
@@ -95,7 +95,7 @@ const audiencesSlice = createSlice({
             })
             .addCase(addAudience.fulfilled, (state, action) => {
                 state.add.status = 'success'
-                state.add.result = action.payload.status
+                state.add.result = action.payload.result
             })
 
         builder
@@ -108,7 +108,7 @@ const audiencesSlice = createSlice({
             })
             .addCase(removeAudience.fulfilled, (state, action) => {
                 state.remove.status = 'success'
-                state.remove.result = action.payload.status
+                state.remove.result = action.payload.result
             })
     }
 })
