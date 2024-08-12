@@ -4,10 +4,14 @@ import Text from '@/components/Text'
 import ShadowBlock from '../ShadowBlock'
 
 import { useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '@/store/store'
+import { setIsAuth } from '@/store/slices/authSlice'
 
 import * as styles from './bottom-menu.module.scss'
 
 const BottomMenu: React.FC = () => {
+    const dispatch = useAppDispatch()
+
     const navigate = useNavigate()
 
     return (
@@ -44,7 +48,12 @@ const BottomMenu: React.FC = () => {
                     Занятия
                 </Text>
             </Block>
-            <Text className={styles.menuItem}>Выход</Text>
+            <Text
+                onClick={() => dispatch(setIsAuth(false))}
+                className={styles.menuItem}
+            >
+                Выход
+            </Text>
         </ShadowBlock>
     )
 }
