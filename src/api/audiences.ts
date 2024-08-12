@@ -29,7 +29,9 @@ export const getAudiences = createAsyncThunk(
 )
 
 interface ISearchAudiencesData {
-    name: string
+    name: string,
+    limit?: number
+    offset?: number
 }
 
 export const searchAudiences = createAsyncThunk(
