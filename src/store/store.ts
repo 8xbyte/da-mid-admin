@@ -1,11 +1,13 @@
 import authSlice from './slices/authSlice'
+import audiencesSlice from './slices/audiencesSlice'
 
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const store = configureStore({
     reducer: {
-        auth: authSlice
+        auth: authSlice,
+        audiences: audiencesSlice
     }
 })
 
