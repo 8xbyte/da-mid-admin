@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import * as styles from './block.module.scss'
 
@@ -8,12 +8,12 @@ export interface IBlockProps
         HTMLDivElement
     > {}
 
-const Block: React.FC<IBlockProps> = ({ className, children, ...others }) => {
+const Block: React.FC<IBlockProps> = forwardRef(({ className, children, ...others }, ref) => {
     return (
-        <div className={[styles.defaultBlock, className].join(' ')} {...others}>
+        <div ref={ref} className={[styles.defaultBlock, className].join(' ')} {...others}>
             {children}
         </div>
     )
-}
+})
 
 export default Block
