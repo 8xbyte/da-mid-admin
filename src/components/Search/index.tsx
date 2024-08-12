@@ -1,7 +1,7 @@
-import React from 'react'
-import Block from '@/components/Block'
-import Image from '@/components/Image'
 import SearchImage from '@/assets/search.svg'
+import Image from '@/components/Image'
+import ShadowBlock from '@/components/ShadowBlock'
+import React from 'react'
 
 import Input, { IInputProps } from '@/components/Input'
 
@@ -11,10 +11,10 @@ export interface ISearchProps extends IInputProps {}
 
 const Search: React.FC<ISearchProps> = ({ ...others }) => {
     return (
-        <Block className={styles.search}>
+        <ShadowBlock className={styles.search}>
             <Input className={styles.input} {...others} />
             <Image className={styles.image} src={SearchImage} />
-        </Block>
+        </ShadowBlock>
     )
 }
 
