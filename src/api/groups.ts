@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { IApiResult } from '@/interfaces/api'
-import { IGroup } from '@/interfaces/group'
+import { IGroup } from '@/interfaces/groups'
 import { getStringFromAxiosError } from '@/utils/axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
