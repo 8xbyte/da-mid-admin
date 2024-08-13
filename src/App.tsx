@@ -19,9 +19,7 @@ const App: React.FC = () => {
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        if (auth.isAuth) {
-            navigate('/audiences')
-        } else {
+        if (!auth.isAuth) {
             navigate('/login')
         }
     }, [auth.isAuth])
