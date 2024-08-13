@@ -1,6 +1,7 @@
 import audiencesSlice from './slices/audiencesSlice'
 import authSlice from './slices/authSlice'
 import groupSlice from './slices/groupsSlice'
+import subjectsSlice from './slices/subjectsSlice'
 
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
@@ -9,7 +10,8 @@ const store = configureStore({
     reducer: {
         auth: authSlice,
         audiences: audiencesSlice,
-        groups: groupSlice
+        groups: groupSlice,
+        subjects: subjectsSlice
     }
 })
 
