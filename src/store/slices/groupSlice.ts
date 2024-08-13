@@ -1,6 +1,6 @@
-import { addGroup, getGroups, removeGroup, searchGroups } from '@/api/group'
+import { addGroup, getGroups, removeGroup, searchGroups } from '@/api/groups'
 import { IApiStatus } from '@/interfaces/api'
-import { IGroup } from '@/interfaces/group'
+import { IGroup } from '@/interfaces/groups'
 import { createSlice } from '@reduxjs/toolkit'
 
 interface IInitialState {
