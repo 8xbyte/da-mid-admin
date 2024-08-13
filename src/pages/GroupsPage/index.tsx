@@ -123,10 +123,10 @@ const GroupsPage: React.FC = () => {
         <Block className={styles.groupsPage}>
             <Search onChange={changeSearchHandler} placeholder='Поиск' />
             <ShadowBlock className={styles.addBlock}>
-                <Text className={styles.text}>Добавить аудиторию</Text>
+                <Text className={styles.text}>Добавить группу</Text>
                 <Block className={styles.controlBlock}>
                     <Input
-                        placeholder='Название аудитории'
+                        placeholder='Название группы'
                         className={styles.input}
                         onChange={changeNameHandler}
                     />
