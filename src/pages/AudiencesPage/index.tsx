@@ -7,14 +7,9 @@ import Input from '@/components/Input'
 import Search from '@/components/Search'
 import ShadowBlock from '@/components/ShadowBlock'
 import Text from '@/components/Text'
-import React, { useRef } from 'react'
+import React from 'react'
 
-import {
-    addAudience,
-    getAudiences,
-    removeAudience,
-    searchAudiences
-} from '@/api/audiences'
+import { addAudience, removeAudience, searchAudiences } from '@/api/audiences'
 import { IAudience } from '@/interfaces/audiences'
 import { useAppDispatch, useAppSelector } from '@/store/store'
 import { useInView } from 'react-intersection-observer'
@@ -30,26 +25,19 @@ const AudiencesPage: React.FC = () => {
     const navigate = useNavigate()
 
     const [ref, inView] = useInView()
-    const timerRef = useRef<NodeJS.Timeout | null>(null)
+    const timerRef = React.useRef<NodeJS.Timeout | null>(null)
     const [searchText, setSearchText] = React.useState<string | null>(null)
     const [nameText, setNameText] = React.useState<string | null>(null)
-    const [list, setList] = React.useState<Array<IAudience>>([])
+    const [audienceList, setAudienceList] = React.useState<Array<IAudience>>([])
 
     React.useEffect(() => {
         if (!auth.isAuth) {
             navigate('/login')
-        } else {
-            dispatch(
-                getAudiences({
-                    limit: 10,
-                    offset: 0
-                })
-            )
         }
     }, [])
 
     React.useEffect(() => {
-        if (inView && list.length % 10 === 0) {
+        if (inView && audienceList.length % 10 === 0) {
             if (
                 audiences.search.result &&
                 audiences.search.result.length !== 0
@@ -57,7 +45,7 @@ const AudiencesPage: React.FC = () => {
                 if (searchText) {
                     dispatch(
                         searchAudiences({
-                            offset: list.length,
+                            offset: audienceList.length,
                             limit: 10,
                             name: searchText
                         })
@@ -69,20 +57,20 @@ const AudiencesPage: React.FC = () => {
 
     React.useEffect(() => {
         if (audiences.search.status === 'success' && audiences.search.result) {
-            setList([...list, ...audiences.search.result])
+            setAudienceList([...audienceList, ...audiences.search.result])
         }
     }, [audiences.search.status])
 
     React.useEffect(() => {
         if (audiences.add.status === 'success' && audiences.add.result) {
-            setList([audiences.add.result, ...list])
+            setAudienceList([audiences.add.result, ...audienceList])
         }
     }, [audiences.add.status])
 
     React.useEffect(() => {
         if (audiences.remove.status === 'success' && audiences.remove.result) {
-            setList(
-                [...list].filter(
+            setAudienceList(
+                [...audienceList].filter(
                     (audience) => audience.id !== audiences.remove.result!.id
                 )
             )
@@ -117,7 +105,7 @@ const AudiencesPage: React.FC = () => {
 
         timerRef.current = setTimeout(() => {
             if (value) {
-                setList([])
+                setAudienceList([])
                 dispatch(
                     searchAudiences({
                         limit: 10,
@@ -154,8 +142,8 @@ const AudiencesPage: React.FC = () => {
                 </Block>
             </ShadowBlock>
             <ShadowBlock className={styles.audiencesBlock}>
-                {list.length > 0 ? (
-                    list.map((audience) => (
+                {audienceList.length > 0 ? (
+                    audienceList.map((audience) => (
                         <Block
                             key={audience.id}
                             ref={ref}
