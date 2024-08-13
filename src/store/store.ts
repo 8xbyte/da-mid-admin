@@ -1,6 +1,6 @@
 import audiencesSlice from './slices/audiencesSlice'
 import authSlice from './slices/authSlice'
-import groupSlice from './slices/groupSlice'
+import groupSlice from './slices/groupsSlice'
 
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
